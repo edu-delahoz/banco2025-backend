@@ -34,6 +34,8 @@ La API queda en `http://localhost:8080`.
 
 ## CI/CD y cómo desplegar
 
+API desplegada: <https://banco2025-backendspring-datasource-url.onrender.com/api/customers> (plan free: la primera petición tarda ~1 min si el servicio estaba dormido).
+
 El pipeline está en [`.github/workflows/build.yml`](.github/workflows/build.yml):
 
 | Job | Cuándo corre | Qué hace |
