@@ -5,6 +5,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=edu-delahoz_banco2025-backend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=edu-delahoz_banco2025-backend)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=edu-delahoz_banco2025-backend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=edu-delahoz_banco2025-backend)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=edu-delahoz_banco2025-backend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=edu-delahoz_banco2025-backend)
+[![Coverage Status](https://coveralls.io/repos/github/edu-delahoz/banco2025-backend/badge.svg?branch=main)](https://coveralls.io/github/edu-delahoz/banco2025-backend?branch=main)
 [![Known Vulnerabilities](https://snyk.io/test/github/edu-delahoz/banco2025-backend/badge.svg)](https://snyk.io/test/github/edu-delahoz/banco2025-backend)
 [![Docker Image](https://img.shields.io/docker/v/edudelahoz/banco2025-backend?label=docker%20hub)](https://hub.docker.com/r/edudelahoz/banco2025-backend)
 
@@ -62,3 +63,27 @@ Prueba de humo manual contra cualquier despliegue:
 ```bash
 scripts/smoke.sh https://<servicio>.onrender.com
 ```
+
+## Probar la API en la nube
+
+Ejemplos con `curl` contra el despliegue de Render (también sirven en Postman con los mismos cuerpos JSON):
+
+```bash
+URL=https://banco2025-backendspring-datasource-url.onrender.com
+
+# Listar clientes
+curl -s "$URL/api/customers"
+
+# Crear dos clientes
+curl -s -X POST -H 'Content-Type: application/json' "$URL/api/customers" \
+  -d '{"firstName":"Ana","lastName":"Pérez","accountNumber":"ACC-100","balance":500.0}'
+curl -s -X POST -H 'Content-Type: application/json' "$URL/api/customers" \
+  -d '{"firstName":"Luis","lastName":"Gómez","accountNumber":"ACC-200","balance":0.0}'
+
+# Transferir 120 de ACC-100 a ACC-200 y ver el historial
+curl -s -X POST -H 'Content-Type: application/json' "$URL/api/transactions" \
+  -d '{"senderAccountNumber":"ACC-100","receiverAccountNumber":"ACC-200","amount":120.0}'
+curl -s "$URL/api/transactions/ACC-100"
+```
+
+Si el número de cuenta ya existe, usa otro: la base en la nube es compartida.
