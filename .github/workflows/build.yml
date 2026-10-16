@@ -36,6 +36,14 @@ jobs:
           name: jacoco-report
           path: target/site/jacoco/
 
+      - name: Upload coverage to Coveralls
+        if: always()
+        uses: coverallsapp/github-action@8d6379e14d29928660c4ba802d8e85393440b329 # v2.3.8
+        with:
+          file: target/site/jacoco/jacoco.xml
+          format: jacoco
+          fail-on-error: false # si Coveralls no responde, no tumba el pipeline
+
   sonar:
     name: SonarCloud
     needs: tests
