@@ -1,0 +1,6 @@
+# Imagen para CI/CD: empaqueta el jar que ya compiló el job "build" de GitHub Actions
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+COPY target/banco2025.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
