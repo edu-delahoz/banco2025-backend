@@ -5,6 +5,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=edu-delahoz_banco2025-backend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=edu-delahoz_banco2025-backend)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=edu-delahoz_banco2025-backend&metric=bugs)](https://sonarcloud.io/summary/new_code?id=edu-delahoz_banco2025-backend)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=edu-delahoz_banco2025-backend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=edu-delahoz_banco2025-backend)
+[![Coverage Status](https://coveralls.io/repos/github/edu-delahoz/banco2025-backend/badge.svg?branch=main)](https://coveralls.io/github/edu-delahoz/banco2025-backend?branch=main)
 [![Known Vulnerabilities](https://snyk.io/test/github/edu-delahoz/banco2025-backend/badge.svg)](https://snyk.io/test/github/edu-delahoz/banco2025-backend)
 [![Docker Image](https://img.shields.io/docker/v/edudelahoz/banco2025-backend?label=docker%20hub)](https://hub.docker.com/r/edudelahoz/banco2025-backend)
 
