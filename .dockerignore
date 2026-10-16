@@ -1,4 +1,5 @@
 target/
+!target/banco2025.jar
 .mvn/wrapper/*.jar
 *.iml
 .idea/
